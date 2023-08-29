@@ -1,5 +1,9 @@
 {
   "lista": [
-
+    {
+      "produto": "Arroz",
+      "quantidade": "5",
+      "id": 1
+    }
   ]
 }

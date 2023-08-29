@@ -5,7 +5,7 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
 
-    <ion-title>Criar Lista</ion-title>
+    <ion-title> Criar Lista </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,17 +14,33 @@
 <form #form="ngForm" (ngSubmit)="cadastro(form)">
     <ion-list>
       <ion-item>
-        <ion-input label="Produto" label-placement="floating" fill="solid" placeholder="Escreva o nome do item" type="name" name="produto" ngModel></ion-input>
+        <ion-input label="Produto" label-placement="floating" fill="solid" placeholder="Escreva o nome do item" type="text" name="produto" ngModel></ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-input label="Quantidade/Peso" label-placement="floating" fill="solid" placeholder="Escreva o nome do item" type="text" name="quantidade" ngModel></ion-input>
+      </ion-item>
+      
     </ion-list>
 
-    <ion-button shape="round"class="btn btn-primary mt-3" type="submit" color="success" >{{ nameButton }}</ion-button>
+    <ion-button shape="round" class="btn btn-primary mt-3" type="submit" color="success" >{{ nameButton }}</ion-button>
     
 </form>
 
-<p> <strong>PRODUTOS: </strong> {{dados.produto}} </p>
 
 
-<ion-button expand="full" color="success">Salvar Lista</ion-button>
+<h3><strong>PRODUTOS: </strong></h3>
+
+<ion-list lines="inset" *ngFor="let produto of meusProdutos">
+  <ion-item>
+    <ion-label>{{ produto.produto }} | {{ produto.quantidade}} Kg/Qntd </ion-label>
+    <ion-button class="btn btn-danger btn-block shadow d-flex justify-content-center" (click)="deletar(produto.id)" color="success">Excluir</ion-button>
+  </ion-item>
+</ion-list>
+
+
+
+
+<ion-button expand="full"  class="btn btn-primary mt-3" type="submit" color="success">Salvar Lista</ion-button>
 
   </ion-content>
