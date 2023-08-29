@@ -1,6 +1,6 @@
 export interface Lista{
     id: number,
-    quantidade: number,
+    quantidade: string,
     produto: string;
 
 }

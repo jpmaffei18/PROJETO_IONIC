@@ -28,6 +28,7 @@ export class CriarListaPage{
   constructor(
     private http:HttpClient,
   ) {}
+  
   ngOnInit(): void {
 
     this.http.get<Lista[]>('http://localhost:3000/lista').subscribe(results => this.meusProdutos = results );
